@@ -115,7 +115,7 @@ export default class Draggable extends Component {
 
 	_dragItemCss = () => {
 		const { renderElement, renderShape, renderSize, renderColor } = this.props;
-		if(renderElement) return renderElement
+		if (renderElement) return renderElement
 		if (renderShape == 'circle') {
 			return {
 				backgroundColor: renderColor,
@@ -168,10 +168,13 @@ export default class Draggable extends Component {
 
 	render() {
 		const touchableContent = this._getTextOrImage();
-		const { pressDrag, longPressDrag, pressInDrag, pressOutDrag } = this.props;
+		const { pressDrag, longPressDrag, pressInDrag, pressOutDrag, onTouchEnd, onTouchStart } = this.props;
 
 		return (
-			<View style={this._positionCss()}>
+			<View style={this._positionCss()}
+				onTouchStart={onTouchStart}
+				onTouchEnd={onTouchEnd}
+			>
 				<Animated.View
 					{...this.panResponder.panHandlers}
 					style={[this.state.pan.getLayout()]}>
