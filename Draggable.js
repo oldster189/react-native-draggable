@@ -100,15 +100,15 @@ export default class Draggable extends Component {
 			ios: {
 				zIndex: z != null ? z : 999,
 				position: 'absolute',
-				top: 0,
-				left: 0
+				top: offsetY,
+				left: offsetX
 			},
 			android: {
 				position: 'absolute',
 				width: Window.width,
 				height: Window.height,
-				top: 0,
-				left: 0
+				top: offsetY,
+				left: offsetX
 			},
 		});
 	}
