@@ -100,21 +100,22 @@ export default class Draggable extends Component {
 			ios: {
 				zIndex: z != null ? z : 999,
 				position: 'absolute',
-				top: y != null ? y : (Window.height / 2 - renderSize + offsetY),
-				left: x != null ? x : (Window.width / 2 - renderSize + offsetX)
+				top: 0,
+				left: 0
 			},
 			android: {
 				position: 'absolute',
 				width: Window.width,
 				height: Window.height,
-				top: y != null ? y : (Window.height / 2 - renderSize + offsetY),
-				left: x != null ? x : (Window.width / 2 - renderSize + offsetX)
+				top: 0,
+				left: 0
 			},
 		});
 	}
 
 	_dragItemCss = () => {
-		const { renderShape, renderSize, renderColor } = this.props;
+		const { renderElement, renderShape, renderSize, renderColor } = this.props;
+		if(renderElement) return renderElement
 		if (renderShape == 'circle') {
 			return {
 				backgroundColor: renderColor,
