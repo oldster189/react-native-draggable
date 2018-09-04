@@ -115,7 +115,7 @@ export default class Draggable extends Component {
 
 	_dragItemCss = () => {
 		const { renderElement, renderShape, renderSize, renderColor } = this.props;
-		if (renderElement) return renderElement
+		if (renderElement) return
 		if (renderShape == 'circle') {
 			return {
 				backgroundColor: renderColor,
@@ -149,9 +149,8 @@ export default class Draggable extends Component {
 	}
 	_getTextOrImage = () => {
 		const { renderSize, renderShape, renderElement, renderText, imageSource } = this.props;
-		if (renderElement) {
-			return renderElement
-		} else if (renderShape == 'image') {
+		if (renderElement) return renderElement
+		if (renderShape == 'image') {
 			return (<Image style={this._dragItemCss(renderSize, null, 'image')} source={imageSource} />);
 		} else {
 			return (<Text style={this._dragItemTextCss(renderSize)}>{renderText}</Text>);
